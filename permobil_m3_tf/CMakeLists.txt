@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 3.8)
 project(robot_tf)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
@@ -7,11 +7,16 @@ project(robot_tf)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
-  roscpp
-  tf
-)
+# find_package(catkin REQUIRED COMPONENTS
+#   geometry_msgs
+#   roscpp
+#   tf
+# )
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -102,12 +107,12 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES robot_tf
-#  CATKIN_DEPENDS geometry_msgs roscpp tf
-#  DEPENDS system_lib
-)
+# catkin_package(
+# #  INCLUDE_DIRS include
+# #  LIBRARIES robot_tf
+# #  CATKIN_DEPENDS geometry_msgs roscpp tf
+# #  DEPENDS system_lib
+# )
 
 ###########
 ## Build ##
@@ -115,13 +120,16 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
-# include
-  ${catkin_INCLUDE_DIRS}
-)
+# include_directories(
+# # include
+#   ${catkin_INCLUDE_DIRS}
+# )
 
 add_executable(tf_broadcaster src/tf_broadcaster.cpp)
-target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
+# target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
+ament_target_dependencies(tf_broadcaster "tf2_ros" "rclcpp" "geometry_msgs")
+
+ament_package()
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
