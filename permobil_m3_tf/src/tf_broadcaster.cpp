@@ -9,8 +9,6 @@ int main(int argc, char** argv)
     rclcpp::init(argc, argv);
     auto node = rclcpp::Node::make_shared("robot_tf_publisher");
 
-    //   ros::init(argc, argv, "robot_tf_publisher");
-    //   ros::NodeHandle node_handle;
     rclcpp::Rate loop_rate(20);
 
     auto broadcaster = std::make_shared<tf2_ros::TransformBroadcaster>(node);
