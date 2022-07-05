@@ -9,4 +9,9 @@ find_package(tf2_ros REQUIRED)
 add_executable(tf_broadcaster src/tf_broadcaster.cpp)
 ament_target_dependencies(tf_broadcaster "tf2_ros" "rclcpp" "geometry_msgs")
 
+install(TARGETS
+    tf_broadcaster
+    DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
