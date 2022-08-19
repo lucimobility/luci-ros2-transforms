@@ -26,7 +26,7 @@ int main(int argc, char** argv)
         trans.transform.translation.z = 0;
         tf2::Quaternion quat;
         // TODO feed in actual degrees based on camera angles 0, 0, -0.707, 0.707
-        quat.setRPY(0, 0, -0.707);
+        quat.setRPY(0, 0, 0);
         trans.transform.rotation.x = quat.x();
         trans.transform.rotation.y = quat.y();
         trans.transform.rotation.z = quat.z();

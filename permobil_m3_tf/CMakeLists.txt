@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(luci_sensors_tf)
+project(permobil_m3_tf)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
