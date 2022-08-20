@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(permobil_m3_tf)
+project(quickie_500m_tf)
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
