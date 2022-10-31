@@ -48,3 +48,8 @@ Thumbs.db
 *.mov
 *.wmv
 
+
+# Deb build files
+build/
+install/
+log/

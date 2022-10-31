@@ -1,18 +1,17 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>quickie_500m_tf</name>
-  <version>0.2.0</version>
+  <name>luci_transforms</name>
+  <version>0.3.0</version>
   <description>The luci_sensors_tf package is responsible for brodcasting the chair specific Luci sensors positions</description>
-  <maintainer email="josh@luci.com">josh</maintainer>
+
+  <maintainer email="christian@luci.com">Christian</maintainer>
+
   <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>rclcpp</depend>
   <depend>geometry_msgs</depend>
   <depend>tf2_ros</depend>
-
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
