@@ -19,10 +19,10 @@ _**Note: All the sensors from LUCI streams are conveniently  already set relativ
 
 | Topics | Subscription / Publish | Message Type | Description |
 |--------|------------------------|--------------|-------------|
-| luci/camera_transform | publish | geometry_msgs::msg::TransformStamped | Transformation from front camera pointcloud to chair center <br/><br/> (base_link = chair center, base_camera = camera stream) |
-| luci/ultrasonic_transform | publish | geometry_msgs::msg::TransformStamped | Transformation from ultransonic pointcloud to chair center <br/><br/> (base_link = chair center, base_ultrasonic = ultrasonic stream) |
-| luci/radar_transform | publish | geometry_msgs::msg::TransformStamped | Transformation from radar pointcloud to chair center <br/><br/> (base_link = chair center, base_radar = radar stream) |
+| tf/ | publish | geometry_msgs::msg::TransformStamped | Transformations from (base_camera, base_radar, base_ultrasonic, base_footprint) to base_link (chair center) <br/><br/> (base_link = chair center, base_camera = camera stream, base_radar = radar stream, base_ultrasonic = ultrasonic stream, base_footprint = 2D center of chair) |
 
 **Note chair center is defined as the center of the drive wheels and is the 0 point for all sensor streams from LUCI. See image below for reference.**
+
+Post transform a obstacle 1m in front of the chair in its Y axis will be 1m on the X axis of base_link and base_footprint frame. This is to align with the standard ROS base_link frame and right hand rule.
 
 ![luci chair center image](luci-chair-center.png)
