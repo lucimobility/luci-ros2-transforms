@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="3">
   <name>luci_transforms</name>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <description>The luci_sensors_tf package is responsible for brodcasting the chair specific Luci sensors positions</description>
 
   <maintainer email="christian@luci.com">Christian</maintainer>
