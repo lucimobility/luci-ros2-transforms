@@ -23,4 +23,13 @@ find_package(tf2_ros REQUIRED)
 add_subdirectory(quickie_500m_tf)
 add_subdirectory(permobil_m3_tf)
 
+# Install URDF and related directories
+install(DIRECTORY
+  config
+  launch
+  meshes
+  urdf
+  DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()
