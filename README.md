@@ -22,7 +22,14 @@ Once you have the proper dependencies installed and/or sourced you can begin bui
 1. cd into the directory `/luci-ros2-transforms/` (should be next to the package.xml file)
 2. `colcon build`
 3. `source install/setup.bash`
-4. `ros2 run luci_transforms quickie_500m_tf_node`
+
+### Options for running ###
+There are two things that can be launched with this packages:
+1. A launch file to launch all entire robot with meshes, TF etc.
+    - You can run this using `ros2 launch luci_transforms display.launch.py`. This will launch the entire robot model in rviz. 
+2. A tf node to spin up all of LuciSandbox sensor tf's:
+    - You can run this using `ros2 run luci_transforms luci_dev_kit_tf_node`
+    - You can also run this using `ros2 launch luci_transforms luci_dev_kit.launch.xml`
 
 NOTE: There is also a `build-package.sh` script available in this repo that will not just build the ROS package but also build a .deb file for install. This is not usually needed when developing but is an option to run instead of the commands above `./build-package.sh`. This is the same script called by the github actions to automate the release process. 
 

@@ -1,0 +1,43 @@
+<launch>
+  <!-- Camera: base_link -> base_camera
+       RPY: (0, 0, -1.5708)  i.e. -90° around Z
+       Translation: (0, 0, 0)
+  -->
+  <node
+    pkg="tf2_ros"
+    exec="static_transform_publisher"
+    name="base_link_to_base_camera"
+    output="screen"
+    args="0 0 0 0 0 -1.5708 base_link base_camera" />
+
+  <!-- Radar: base_link -> base_radar
+       Same rotation as camera, no translation
+  -->
+  <node
+    pkg="tf2_ros"
+    exec="static_transform_publisher"
+    name="base_link_to_base_radar"
+    output="screen"
+    args="0 0 0 0 0 -1.5708 base_link base_radar" />
+
+  <!-- Ultrasonic: base_link -> base_ultrasonic
+       Same rotation as camera, no translation
+  -->
+  <node
+    pkg="tf2_ros"
+    exec="static_transform_publisher"
+    name="base_link_to_base_ultrasonic"
+    output="screen"
+    args="0 0 0 0 0 -1.5708 base_link base_ultrasonic" />
+
+  <!-- Footprint: base_link -> base_footprint
+       Translation: z = -0.17 (chair height)
+       RPY: (0, 0, 0)
+  -->
+  <node
+    pkg="tf2_ros"
+    exec="static_transform_publisher"
+    name="base_link_to_base_footprint"
+    output="screen"
+    args="0 0 -0.17 0 0 0 base_link base_footprint" />
+</launch>
