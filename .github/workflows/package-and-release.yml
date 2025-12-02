@@ -17,8 +17,8 @@ jobs:
       - uses: jfrog/setup-jfrog-cli@v3
         env:
           # Credentials for Jfrog artifactory
-          JF_URL: ${{ env.JF_URL }}
-          JF_ACCESS_TOKEN: ${{ env.JF_ACCESS_TOKEN }}
+          JF_URL: ${{ secrets.JF_URL }}
+          JF_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_TOKEN }}
 
       - name: Checkout SDK Branch
         uses: actions/checkout@v3
