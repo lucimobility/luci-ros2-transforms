@@ -5,7 +5,7 @@ This is the package responsible for all sensor to base_link transformation topic
 ## How to build and run this package ##
 
 ### Dependencies ###
-There are numerous dependencies needed to run and build this package including ROS2 and fakeroot. Rather then have to manually install all of these on your system a development docker image was made and is hosted on jfrog. To download it run `docker run -d -it -p 8765:8765 luci.jfrog.io/ros2-sdk-docker-local/luci-sdk-development-image:latest`. This will download the latest image made by the [luci-sdk repo](https://github.com/lucimobility/luci-ros2-sdk). This image should have all of the needed dependencies excluding any custom ROS packages made such as `luci_messages`, you will still need to get those yourself. 
+There are numerous dependencies needed to run and build this package including ROS2 and fakeroot. Rather then have to manually install all of these on your system a development docker image was made and is hosted on the GitHub Container Registry. To download it run `docker run -d -it -p 8765:8765 ghcr.io/lucimobility/luci-sdk-development-image:latest`. This will download the latest image made by the [luci-sdk repo](https://github.com/lucimobility/luci-ros2-sdk). This image should have all of the needed dependencies excluding any custom ROS packages made such as `luci_messages`, you will still need to get those yourself. 
 
 In order to use the image please follow the instructions in the [SDK repo](https://github.com/lucimobility/luci-ros2-sdk/blob/main/docs/1_Getting-Started/2_docker.md) for connecting to a docker image 
 
@@ -42,7 +42,7 @@ When a new version of this package is ready to be released there are a couple st
     - LUCI follows [semver](https://semver.org/) style versioning so MAJOR.MINOR.PATCH versions are expected.
     - It is okay to not put out versions until multiple changes have happened to the code. 
 2. Once the version increment is merged you simply need to create an official release in github. Make sure you make the release version the same as what is now in `package.xml`. We have chosen to keep github release and package version in sync.
-    - This should trigger an action to auto run called `Create and Sign Package` which you can monitor in the github actions panel. This should grab the released code, build it, make an installable .deb file, gdb sign it and push it to jrog artifactory. 
+    - This should trigger an action to auto run called `Create and Sign Package` which you can monitor in the github actions panel. This should grab the released code, build it, make an installable .deb file, GPG sign it and publish it to the LUCI apt repository. 
 
 If everything went smoothly congratulations the new package will be released and publicly distributable.
 
